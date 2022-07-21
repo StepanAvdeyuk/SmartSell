@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Gilroy', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    overflow-anchor: none;
+}
+
+.container {
+    width: 1160px;
+    margin: 0 auto;
+    padding-left: 160px;
+    position: relative;
+}
+
