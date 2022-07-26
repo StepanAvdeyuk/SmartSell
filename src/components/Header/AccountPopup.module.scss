@@ -84,12 +84,20 @@
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
     border-radius: 0px 0px 10px 10px;
     display: flex;
+    align-items: center;
     font-weight: 400;
     font-size: 12px;
     color: #000;
-    padding: 15px 28px;
+    padding: 0px 28px;
+    &:hover {
+        cursor: auto;
+    }
     div {
+        padding: 16px 0;
         margin-right: 30px;
+        &:hover {
+            cursor: pointer;
+        }
     }
     z-index: 2;
 }

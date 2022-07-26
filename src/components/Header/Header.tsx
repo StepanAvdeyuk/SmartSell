@@ -7,6 +7,9 @@ import bellIcon from '../../assets/svg/bell.svg';
 import USFlag from '../../assets/img/us-flag.png';
 
 import styles from './Header.module.scss';
+import SystemNotifications from '../notifications/SystemNotifications';
+import DeveloperNotifications from '../notifications/DeveloperNotifications';
+import InfoNotifications from '../notifications/InfoNotifications';
 
 const Header: React.FC = () => {
 
@@ -49,6 +52,9 @@ const Header: React.FC = () => {
 				{/* <img src={avatar} alt="avatar"/> */}
 			</div>
 			{accountPopup ? <AccountPopup/> : null}
+			{false ? <SystemNotifications/> : null}
+			{false ? <DeveloperNotifications/> : null}
+			{false ? <InfoNotifications/> : null}
 		</div>
 	)      
 }
