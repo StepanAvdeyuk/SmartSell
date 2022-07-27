@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { Link } from 'react-router-dom';
 import useHover from '../../hooks/useHover';
 
 import styles from './Sidebar.module.scss';
@@ -6,41 +7,50 @@ import SidebarItem from './SidebarItem';
 
 export type MenuData = {
 	name: string,
-	list: string[]
+	list: string[],
+	link: string
 }
 
 const menu: MenuData[] = [
 	{
 		name: 'Главная',
-	 	list: []
+	 	list: [],
+		link: '/'
 	}, 
 	{
 		name: 'Поисковик',
-		list: ['Поиск по товарам', 'Поиск брендов', 'Поиск по продавцу', 'Поиск по категориям', 'Поиск по избранному', 'История поиска']
+		list: ['Поиск по товарам', 'Поиск брендов', 'Поиск по продавцу', 'Поиск по категориям', 'Поиск по избранному', 'История поиска'],
+		link: '/'
 	}, 
 	{
 		name: 'Инвентарь',
-		list: []
+		list: [],
+		link: '/'
 	}, 
 	{
 		name: 'Заказы',
-		list: ['']
+		list: [''],
+		link: '/'
 	},
 	{
 		name: 'Отчеты',
-		list: ['']
+		list: [''],
+		link: '/'
 	}, 
 	{
 		name: 'Сообщения',
-		list: []
+		list: [],
+		link: '/notifications'
 	},
 	{
 		name: 'Все настройки',
-		list: ['Основные', 'Подключенные аккаунты', 'Мои платежи', 'Управление доступами', 'Партнерская программа', 'Справка']
+		list: ['Основные', 'Подключенные аккаунты', 'Мои платежи', 'Управление доступами', 'Партнерская программа', 'Справка'],
+		link: '/'
 	}, 
 	{
 		name: 'Выход',
-		list: []
+		list: [],
+		link: '/'
 	}
 ];
 
@@ -54,9 +64,9 @@ const Sidebar: React.FC = () => {
 
 	return ( 
 		<div className={wrapperClass} ref={sidebarRef}>
-			<div className={styles.logo}>
+			<Link to='/' className={styles.logo}>
 				Smart<br/>Sell
-			</div>
+			</Link>
 			<div className={styles.sidebarItemWrapper}>
 				{menu.map((item, i) => {
 					const sidabarClass = activePage === i ? styles.item + ' ' + styles.active : styles.item;

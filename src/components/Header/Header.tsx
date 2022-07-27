@@ -10,6 +10,7 @@ import styles from './Header.module.scss';
 import SystemNotifications from '../notifications/SystemNotifications';
 import DeveloperNotifications from '../notifications/DeveloperNotifications';
 import InfoNotifications from '../notifications/InfoNotifications';
+import DashboardPopup from './DashboardPopup';
 
 const Header: React.FC = () => {
 
@@ -17,6 +18,12 @@ const Header: React.FC = () => {
 
 	function toggleAccountPopup() {
 		setAccountPopup(!accountPopup);
+	} 
+
+	const [dashboardPopup, setDashboardPopup] = React.useState(false);
+
+	function toggleDashboardPopup() {
+		setDashboardPopup(!dashboardPopup);
 	} 
 
 	return (
@@ -27,7 +34,7 @@ const Header: React.FC = () => {
 				<img className={styles.searchIcon} src={searchIcon} alt="search-icon"/>
 			</div>
 
-			<div className={styles.dashboardWrapper}>
+			<div className={styles.dashboardWrapper} onClick={toggleDashboardPopup}>
 				<div></div>
 				<div></div>
 				<div></div>
@@ -52,6 +59,7 @@ const Header: React.FC = () => {
 				{/* <img src={avatar} alt="avatar"/> */}
 			</div>
 			{accountPopup ? <AccountPopup/> : null}
+			{dashboardPopup ? <DashboardPopup/> : null}
 			{false ? <SystemNotifications/> : null}
 			{false ? <DeveloperNotifications/> : null}
 			{false ? <InfoNotifications/> : null}

@@ -1,0 +1,42 @@
+.wrapper {
+    width: 940px;
+    margin-top: 30px;
+    padding: 24px 30px;
+    background-color: #EDF4FC;
+    border-radius: 10px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+        font-weight: 400;
+        font-size: 14px;
+        color: #243350;
+        border-bottom: 1px solid #243350;
+    }
+}
+
+.name {
+    font-weight: 400;
+    font-size: 24px;
+    color: #243350;
+}
+
+.info {
+    margin-top: 20px;
+    display: flex;
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 26px;
+        color: #000;
+    }
+    span {
+        min-width: fit-content;
+        color: #5F7289;
+        margin-right: 55px;
+        line-height: 26px;
+    }
+}

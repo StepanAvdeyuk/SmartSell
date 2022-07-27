@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import styles from './Sidebar.module.scss'
 import { getIcon } from './getIcon';
@@ -31,7 +32,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({item, i, className, onClick, a
     }, [ulRef, className, activePage, isHover])
 
     return (
-    <div className={className} onClick={onClick} style={{paddingBottom: `${paddingBottom}px`}}>
+    <Link to={item.link} className={className} onClick={onClick} style={{paddingBottom: `${paddingBottom}px`}}>
         <div className={styles.icon}>
             {getIcon(i + 1)}
         </div>
@@ -43,7 +44,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({item, i, className, onClick, a
                 })}
             </ul>}
         </div>
-    </div>
+    </Link>
     )
 }
 
