@@ -3,7 +3,9 @@ import {useEffect, useState} from "react";
 export default function useHover(ref: React.RefObject<HTMLDivElement>) {
     const [isHovering, setHovering] = useState(false);
 
-    const on = () => setHovering(true);
+    const on = () => {
+        setHovering(true)
+    };
     const off = () => setHovering(false);
 
     useEffect(() => {

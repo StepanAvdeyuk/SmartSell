@@ -7,9 +7,9 @@ import bellIcon from '../../assets/svg/bell.svg';
 import USFlag from '../../assets/img/us-flag.png';
 
 import styles from './Header.module.scss';
-import SystemNotifications from '../notifications/SystemNotifications';
-import DeveloperNotifications from '../notifications/DeveloperNotifications';
-import InfoNotifications from '../notifications/InfoNotifications';
+import SystemNotifications from '../Notifications/SystemNotifications';
+import DeveloperNotifications from '../Notifications/DeveloperNotifications';
+import InfoNotifications from '../Notifications/InfoNotifications';
 import DashboardPopup from './DashboardPopup';
 
 const Header: React.FC = () => {
