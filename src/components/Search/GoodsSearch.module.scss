@@ -9,6 +9,7 @@
 }
 
 .filters {
+    width: 940px;
     margin-top: 50px;
     padding: 30px 38px;
     display: flex;
@@ -16,4 +17,163 @@
     background: #FFFFFF;
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
     border-radius: 20px;
+    justify-content: space-between;
+}
+
+.switchFilter {
+    margin-bottom: 20px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 100px;
+    border: 1px solid #227AFF;
+    background-color: #DDECFF;
+    position: relative;
+    &.active {
+        .filterSvg {
+            transform: rotate(-180deg);
+        }
+    }
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        color: #243350;
+    }
+    .filterSvg {
+        margin-top: 2px;
+        margin-left: 10px;
+        transition: all 0.2s ease;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.filterPopup {
+    opacity: 0;
+    pointer-events: none; 
+    transition: all 0.1s ease;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    position: absolute;
+    z-index: 2;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    padding: 10px;
+    width: max-content;
+    &.justifyStart {
+        div {
+            justify-content: flex-start;
+        }
+    }
+    &.justifySB {
+        div {
+            justify-content: space-between;
+        }
+    }
+    &.thin {
+        div {
+            height: 30px;
+        }
+    }
+    div {
+        font-weight: 400;
+        font-size: 14px;
+        color: #000;
+        height: 36px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 100px;
+        border: 1px solid #227AFF;
+        background-color: #DDECFF;
+        margin-bottom: 7px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        img {
+            margin-right: 8px;
+            width: 22px;
+        }
+    }
+    .myFilterBtn {
+        color: #FFFFFF;
+        height: 30px;
+        padding: 0 16px;
+        border: none;
+        border-radius: 100px;
+        background-color: #227AFF;
+        font-weight: 400;
+        font-size: 12px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.newFilter {
+    position: fixed;
+    z-index: 5;
+    padding: 20px 30px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #fff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        font-weight: 500;
+        font-size: 16px;
+        color: #2E3B50;
+    }
+    label {
+        margin-top: 14px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #5F7289;
+    }
+    input {
+        border: 1px solid #DADFE9;
+        padding: 8px;
+        border-radius: 10px;
+        width: 245px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #5F7289;
+        margin-left: 26px;
+    }
+    .saveFilter, .noSaveFilter {
+        height: 27px;
+        border: 1px solid #227AFF;
+        font-size: 12px;
+        font-weight: 400;
+        border-radius: 100px;
+        padding: 0 12px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    div {
+        margin-top: 26px;
+    }
+    .saveFilter {
+        margin-right: 14px;
+        background: #227AFF;
+        color: #fff;
+    }
+    .noSaveFilter {
+        background: #fff;
+        color: #000;
+    }
 }
