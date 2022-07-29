@@ -35,13 +35,56 @@ const SwitchFilter: React.FC<SwitchFilterProps> = ({name, childrenItems, justify
             </svg>
             <div className={isOpen ? popupClass + ' ' + styles.active : popupClass}>
                 {childrenItems.map((item, i) => {
-                     return <div>
+                     return <p>
                         {img && <img src={img[i]} alt='falg'></img>}
                         {item}
-                        </div>
+                        </p>
                 })}
             </div>
     </div>
+    )
+}
+
+type MyfilterItemProps = {
+    isOpen: boolean
+}
+
+const MyfilterItem: React.FC<MyfilterItemProps> = ({isOpen})  => {
+
+    const [changeFilterPopup, setChangeFilterPopup] = React.useState(false);
+    const [confirmDeletePopup, setConfirmDeletePopup] = React.useState(false);
+
+    React.useEffect(() => {
+        if (!isOpen) {
+            setChangeFilterPopup(false);
+        }
+    }, [isOpen])
+
+    const toggleChangeFilterPopup = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setChangeFilterPopup(!changeFilterPopup)
+    }
+
+    const toggleConfirmDeletePopup = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setConfirmDeletePopup(!confirmDeletePopup)
+    }
+
+    return (
+        <p onClick={toggleChangeFilterPopup}>Фильтр<svg className={styles.filterItemSvg} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div className={changeFilterPopup ? styles.filterItemChange + ' ' + styles.active : styles.filterItemChange}>
+                <button className={styles.change}>Изменить фильтр</button>
+                <button className={styles.delete} onClick={toggleConfirmDeletePopup}>
+                    Удалить фильтр
+                    {confirmDeletePopup && <div className={styles.confirm}>
+                        <button onClick={toggleConfirmDeletePopup} className={styles.yes}>Да</button>
+                        <button onClick={toggleConfirmDeletePopup} className={styles.no}>Нет</button>
+                    </div>}
+                </button>
+            </div>
+        </p>
     )
 }
 
@@ -52,14 +95,12 @@ const MyFilter: React.FC = () => {
 
     function toggleIsOpen() {
         if (!newPopup) {
-            setIsOpen(!isOpen)
+            setIsOpen(!isOpen);
         }
     }
 
     function toggleNewPopup() {
-        if (newPopup) {
-            setIsOpen(!isOpen)
-        }
+        setIsOpen(!isOpen);
         setNewPopup(!newPopup);
     }
 
@@ -67,20 +108,14 @@ const MyFilter: React.FC = () => {
 
     return (
     <>
-    <div className={isOpen ? styles.switchFilter + ' ' + styles.active : styles.switchFilter} onClick={toggleIsOpen}> 
+    <div onClick={toggleIsOpen} className={isOpen ? styles.switchFilter + ' ' + styles.active : styles.switchFilter}> 
         <p>Мои фильтры</p>
             <svg className={styles.filterSvg}  width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <div className={isOpen ? popupClass + ' ' + styles.active : popupClass}>
-                <div>Фильтр 1<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div>Фильтр 2<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
+                <MyfilterItem isOpen={isOpen} />
+                <MyfilterItem isOpen={isOpen} />
                 <button className={styles.myFilterBtn} onClick={toggleNewPopup}>Создать новый фильтр</button>
             </div>
             {newPopup &&  <div className={styles.newFilter}>

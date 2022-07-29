@@ -50,6 +50,12 @@
     }
 }
 
+.filterItemSvg {
+    margin-top: 2px;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+}
+
 .filterPopup {
     opacity: 0;
     pointer-events: none; 
@@ -78,11 +84,11 @@
         }
     }
     &.thin {
-        div {
+        p {
             height: 30px;
         }
     }
-    div {
+    p {
         font-weight: 400;
         font-size: 14px;
         color: #000;
@@ -90,12 +96,13 @@
         padding: 0 16px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         width: 100%;
         border-radius: 100px;
         border: 1px solid #227AFF;
         background-color: #DDECFF;
         margin-bottom: 7px;
+        position: relative;
         &:last-child {
             margin-bottom: 0;
         }
@@ -177,3 +184,76 @@
         color: #000;
     }
 }
+
+.filterItemChange {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    position: absolute;
+    z-index: 3;
+    top: calc(100% - 3px);
+    left: 130px;
+    width: max-content;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    .change, .delete {
+        width: 100%;
+        border: 1px solid #227AFF;
+        border-radius: 100px;
+        padding: 4px 16px;
+        font-weight: 400;
+        font-size: 12px;
+        position: relative;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .change {
+        background-color: #227AFF;
+        color: #fff;
+    }
+    .delete {
+        margin-top: 10px;
+        color: #E12639;
+        background-color: #fff;
+    }
+}
+
+.confirm {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    display: flex;
+    padding: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    .yes, .no {
+        font-weight: 400;
+        font-size: 12px;
+        border: 1px solid #227AFF;
+        border-radius: 100px;
+        padding: 4px 14px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .yes {
+        background-color: #227AFF;
+        color: #fff;
+        margin-right: 8px;
+    }
+    .no {
+        background-color: #fff;
+        color: #000;
+    }
+}
+
