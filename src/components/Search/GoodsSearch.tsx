@@ -1,139 +1,22 @@
-import React, { ReactComponentElement } from 'react'
-
 import usFlag from '../../assets/img/us-flag.png';
 import canadaFlag from '../../assets/img/canada-flag.png';
 import germanyFlag from '../../assets/img/germany-flag.png';
 import spainFlag from '../../assets/img/spain-flag.png';
 
+import SwitchFilter from './Filters/SwitchFilter';
+import SearchName from './Filters/SearchName';
+import DownloadSearch from './Filters/DownloadSearch';
+import SearchByName from './Filters/SearchByName';
+import TextAreaFilter from './Filters/TextAreaFilter';
+import RangeFilter from './Filters/RangeFilter';
+import SearchBar from './SearchBar';
+import MyFilter from './Filters/MyFilter';
+
 import styles from './GoodsSearch.module.scss'
-
-type SwitchFilterProps = {
-    name: string,
-    childrenItems: string[],
-    justifyStart? : boolean,
-    img? : string[]
-}
-
-const SwitchFilter: React.FC<SwitchFilterProps> = ({name, childrenItems, justifyStart, img}) => {
-    const [isOpen, setIsOpen] = React.useState(false);
-
-    function toggleIsOpen() {
-        setIsOpen(!isOpen);
-    }
-
-    let popupClass = styles.filterPopup;
-
-    if (justifyStart) {
-        popupClass = popupClass + ' ' + styles.justifyStart;
-    }
-
-    return (
-    <div className={isOpen ? styles.switchFilter + ' ' + styles.active : styles.switchFilter} onClick={toggleIsOpen}> 
-        <p>{name}</p>
-            <svg className={styles.filterSvg}  width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div className={isOpen ? popupClass + ' ' + styles.active : popupClass}>
-                {childrenItems.map((item, i) => {
-                     return <p>
-                        {img && <img src={img[i]} alt='falg'></img>}
-                        {item}
-                        </p>
-                })}
-            </div>
-    </div>
-    )
-}
-
-type MyfilterItemProps = {
-    isOpen: boolean
-}
-
-const MyfilterItem: React.FC<MyfilterItemProps> = ({isOpen})  => {
-
-    const [changeFilterPopup, setChangeFilterPopup] = React.useState(false);
-    const [confirmDeletePopup, setConfirmDeletePopup] = React.useState(false);
-
-    React.useEffect(() => {
-        if (!isOpen) {
-            setChangeFilterPopup(false);
-        }
-    }, [isOpen])
-
-    const toggleChangeFilterPopup = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        setChangeFilterPopup(!changeFilterPopup)
-    }
-
-    const toggleConfirmDeletePopup = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        setConfirmDeletePopup(!confirmDeletePopup)
-    }
-
-    return (
-        <p onClick={toggleChangeFilterPopup}>Фильтр<svg className={styles.filterItemSvg} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div className={changeFilterPopup ? styles.filterItemChange + ' ' + styles.active : styles.filterItemChange}>
-                <button className={styles.change}>Изменить фильтр</button>
-                <button className={styles.delete} onClick={toggleConfirmDeletePopup}>
-                    Удалить фильтр
-                    {confirmDeletePopup && <div className={styles.confirm}>
-                        <button onClick={toggleConfirmDeletePopup} className={styles.yes}>Да</button>
-                        <button onClick={toggleConfirmDeletePopup} className={styles.no}>Нет</button>
-                    </div>}
-                </button>
-            </div>
-        </p>
-    )
-}
-
-const MyFilter: React.FC = () => {
-
-    const [isOpen, setIsOpen] = React.useState(false);
-    const [newPopup, setNewPopup] = React.useState(false);
-
-    function toggleIsOpen() {
-        if (!newPopup) {
-            setIsOpen(!isOpen);
-        }
-    }
-
-    function toggleNewPopup() {
-        setIsOpen(!isOpen);
-        setNewPopup(!newPopup);
-    }
-
-    let popupClass = styles.filterPopup + ' ' + styles.thin + ' ' + styles.justifySB; 
-
-    return (
-    <>
-    <div onClick={toggleIsOpen} className={isOpen ? styles.switchFilter + ' ' + styles.active : styles.switchFilter}> 
-        <p>Мои фильтры</p>
-            <svg className={styles.filterSvg}  width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div className={isOpen ? popupClass + ' ' + styles.active : popupClass}>
-                <MyfilterItem isOpen={isOpen} />
-                <MyfilterItem isOpen={isOpen} />
-                <button className={styles.myFilterBtn} onClick={toggleNewPopup}>Создать новый фильтр</button>
-            </div>
-            {newPopup &&  <div className={styles.newFilter}>
-                <p>Новый фильтр</p>
-                <label>Имя<input type="text"/></label>
-                <div>
-                    <button className={styles.saveFilter} onClick={toggleNewPopup}>Сохранить</button>
-                    <button className={styles.noSaveFilter} onClick={toggleNewPopup}>Отмена</button>
-                </div>
-            </div>}
-    </div>
-    </>
-    )
-}
 
 type configFiltersType = {
     component: string,
-    payload?: SwitchFilterProps
+    payload?: any
 }
 
 const GoodsSearch = () => {
@@ -159,6 +42,9 @@ const GoodsSearch = () => {
             component: 'MyFilter',
         },
         {
+            component: 'SearchName',
+        },
+        {
             component: 'SwitchFilter',
             payload: {
                 name: 'Product ID Type',
@@ -166,12 +52,220 @@ const GoodsSearch = () => {
             },
         },
         {
+            component: 'DownloadSearch',
+        },
+        {
+            component: 'SwitchFilter',
+            payload: {
+                name: '25',
+                childrenItems: ['50', '100', '250']
+            },
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Название поставщика'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'ASIN(s)'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'UPС/EAN/ISBN'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Part Number'
+            }
+        },
+        {
+            component: 'SwitchFilter',
+            payload: {
+                name: 'Вариация',
+                childrenItems: ['Вариация 1', 'Вариация 2', 'Вариация 3']
+            },
+        },
+        {
+            component: 'SearchByName'
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Бренд'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Категория'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Производитель'
+            }
+        },
+        {
             component: 'SwitchFilter',
             payload: {
                 name: 'Исключить правообладателей',
                 childrenItems: ['Не исключать правообладателей'],
             },
-        }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Rank (BSR) %',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Amazon In Stock Rate',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Количество продавцов',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'SwitchFilter',
+            payload: {
+                name: 'Присутствие Amazon',
+                childrenItems: ['Да', 'Нет']
+            },
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Количество ревью',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Рейтинг ревью',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Buy Box Price',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Количество FBA селлеров'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Количество FBM селлеров'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Количество FBM Prime селлеров'
+            }
+        },
+        {
+            component: 'TextAreaFilter',
+            payload: {
+                name: 'Количество без By Box'
+            }
+        },
+        {
+            component: 'SwitchFilter',
+            payload: {
+                name: 'Out of Stock',
+                childrenItems: ['Да', 'Нет']
+            },
+        },
+        {
+            component: 'SwitchFilter',
+            payload: {
+                name: 'Плохие бренды',
+                childrenItems: ['Да', 'Нет']
+            },
+        },
+        {
+            component: 'SwitchFilter',
+            payload: {
+                name: 'Хорошие бренды',
+                childrenItems: ['Да', 'Нет']
+            },
+        },
+        {
+            component: 'SwitchFilter',
+            payload: {
+                name: 'Неизвестные бренды',
+                childrenItems: ['Да', 'Нет']
+            },
+        },
+        {
+            component: 'SwitchFilter',
+            payload: {
+                name: 'Selling App',
+                childrenItems: ['Да', 'Нет']
+            },
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Примерный ежимесячный доход',
+                min: '$24',
+                max: '$24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Примерный ежимесячные продажи',
+                min: '$24',
+                max: '$24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Цена на товар без Buy Box',
+                min: '$24',
+                max: '$24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Marketplaces Amazon',
+                min: '24',
+                max: '24'
+            }
+        },
     ]
 
     return (
@@ -181,7 +275,25 @@ const GoodsSearch = () => {
             {configFilters.map(item => {
                 switch (item.component) {
                     case 'MyFilter':
-                            return <MyFilter/>
+                            return <MyFilter/> 
+                    case 'SearchName':
+                        return <SearchName/>
+                    case 'SearchByName':
+                        return <SearchByName/>
+                    case 'RangeFilter': 
+                    if (item.payload) {
+                        return <RangeFilter {...item.payload}/>
+                    } else {
+                        return null
+                    }
+                    case 'DownloadSearch':
+                        return <DownloadSearch/>
+                    case 'TextAreaFilter': 
+                        if (item.payload) {
+                            return <TextAreaFilter {...item.payload}/>
+                        } else {
+                            return null
+                        }
                     case 'SwitchFilter': 
                         if (item.payload) {
                             return <SwitchFilter {...item.payload}/>
@@ -192,6 +304,7 @@ const GoodsSearch = () => {
                         return null
                 }
             })}
+            <SearchBar/>
         </div>
     </div>
     )
