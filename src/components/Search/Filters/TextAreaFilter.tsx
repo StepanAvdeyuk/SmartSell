@@ -1,12 +1,13 @@
 import React from 'react'
 
-import styles from '../GoodsSearch.module.scss'
+import styles from './TextAreaFilter.module.scss'
 
 type TextAreaFilterProps = {
-    name: string
+    name: string,
+    helper?: string
 }
 
-const TextAreaFilter: React.FC<TextAreaFilterProps> = ({name}) => {
+const TextAreaFilter: React.FC<TextAreaFilterProps> = ({name, helper}) => {
 
     const [isOpen, setIsOpen] = React.useState(false);
     const inputRef = React.useRef(null);
@@ -33,7 +34,10 @@ const TextAreaFilter: React.FC<TextAreaFilterProps> = ({name}) => {
 
     return (
         <div ref={inputRef} className={isOpen ? styles.textAreaFilter + ' ' + styles.active : styles.textAreaFilter} onClick={showPopup}>
-            {name}
+            <div className={styles.name}>
+                {name}
+                {helper && <div className={styles.helper}>{helper}</div>}
+            </div>
             <div className={styles.popup}>
                 <p>Введите {name} в поле</p>
                 <textarea></textarea>

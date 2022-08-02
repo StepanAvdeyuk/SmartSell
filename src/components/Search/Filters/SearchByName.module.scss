@@ -1,0 +1,25 @@
+.searchByName {
+    position: relative;
+    height: 36px;
+    margin: 0 4px;
+    margin-bottom: 20px;
+    width: 265px;
+    input {
+        height: 100%;
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid #DADFE9;
+        border-radius: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #5F7289;
+        padding-left: 42px;
+        padding-right: 14px;
+    }
+    svg {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 18px;
+    }
+}

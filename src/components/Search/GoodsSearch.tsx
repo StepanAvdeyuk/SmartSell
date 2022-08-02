@@ -277,7 +277,11 @@ const GoodsSearch = () => {
                     case 'MyFilter':
                             return <MyFilter/> 
                     case 'SearchName':
-                        return <SearchName/>
+                        if (item.payload) {
+                            return <SearchName {...item.payload}/>
+                        } else {
+                            return <SearchName/>
+                        }
                     case 'SearchByName':
                         return <SearchByName/>
                     case 'RangeFilter': 

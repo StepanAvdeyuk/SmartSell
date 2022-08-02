@@ -1,0 +1,57 @@
+.toggleSwitchFilter {
+    display: flex;
+    margin: 0 4px;
+    margin-bottom: 20px;
+    height: 36px;
+    align-items: center;
+    .name {
+        margin-left: 16px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #2E3B50;
+    }
+
+    input[type=checkbox]{
+        height: 0;
+        width: 0;
+        visibility: hidden;
+    }
+    
+    label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 45px; // ширина фон
+        height: 18px; // высота фон
+        transition: background 0.1s ease;
+        background: #DDECFF; // цвет не актив
+        display: block;
+        border-radius: 100px;
+        position: relative;
+    }
+
+    label:active:after {
+        width: 20px; // ширина, если зажать ЛКМ
+    }
+    
+    label:after {
+        content: '';
+        position: absolute;
+        top: 2px; // внутренние отступы круга
+        left: 2px; // внутренние отступы круга
+        width: 14px; // сам круг
+        height: 14px; // сам круг
+        background: #fff;
+        border-radius: 90px;
+        transition: 0.3s;
+    }
+    
+    input:checked + label {
+        background: #227AFF;
+    }
+    
+    input:checked + label:after {
+        left: calc(100% - 2px);
+        transform: translateX(-100%);
+    }
+    
+}

@@ -8,6 +8,7 @@ import MainPage from './pages/MainPage';
 import NotificationsPage from './pages/NotificationsPage';
 import SearchPage from './pages/SearchPage';
 import GoodsSearch from './components/Search/GoodsSearch';
+import SellersSearch from './components/Search/SellersSearch';
 
 const App: React.FC = () => {
 	return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
 				<Route path="/notifications" element={<NotificationsPage/>}/>
 				<Route path="/search" element={<SearchPage/>}>
 					<Route path='goods' element={<GoodsSearch/>}/>
+					<Route path='sellers' element={<SellersSearch/>}/>
 				</Route>
 			</Routes>
        	</div>

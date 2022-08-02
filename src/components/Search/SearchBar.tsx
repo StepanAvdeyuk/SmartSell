@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './GoodsSearch.module.scss';
+import styles from './SearchBar.module.scss';
 
 const SearchBar = () => {
 
@@ -33,7 +33,7 @@ const SearchBar = () => {
         {/* <button className={styles.start}>100% - Поиск завершён</button> */}
         {/* <div className={styles.await}>
             <div className={styles.progress}>10%</div>   
-            {false ?  <><p>Остановить</p>
+            {true ?  <><p>Остановить</p>
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.9914 4.91249C12.3479 4.91249 13.4476 3.81279 13.4476 2.45624C13.4476 1.0997 12.3479 0 10.9914 0C9.63485 0 8.53516 1.0997 8.53516 2.45624C8.53516 3.81279 9.63485 4.91249 10.9914 4.91249Z" fill="#227AFF"/>
                 <path d="M10.9931 21C11.807 21 12.4667 20.3403 12.4667 19.5264C12.4667 18.7126 11.807 18.0529 10.9931 18.0529C10.1793 18.0529 9.51953 18.7126 9.51953 19.5264C9.51953 20.3403 10.1793 21 10.9931 21Z" fill="#227AFF"/>

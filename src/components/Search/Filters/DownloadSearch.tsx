@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from '../GoodsSearch.module.scss'
+import styles from './DownloadSearch.module.scss'
 
 const DownloadSearch: React.FC = () => {
     return (

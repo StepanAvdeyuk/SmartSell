@@ -1,10 +1,14 @@
 import React from 'react'
 
-import styles from '../GoodsSearch.module.scss'
+import styles from './SearchName.module.scss'
 
-const SearchName: React.FC = () => {
+type SearchNameProps = {
+    big?: boolean
+}
+
+const SearchName: React.FC<SearchNameProps> = ({big}) => {
     return (
-        <input className={styles.searchName} type="text" placeholder='Name your search'/>
+        <input className={big ? styles.searchName + ' ' + styles.big : styles.searchName} type="text" placeholder='Name your search'/>
     )
 }
 

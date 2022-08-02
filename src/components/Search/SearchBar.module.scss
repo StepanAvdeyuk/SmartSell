@@ -1,0 +1,117 @@
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.startSearch {
+    width: 100%;
+    height: 42px;
+    margin-top: 8px;
+    .start {
+        width: 100%;
+        height: 100%;
+        background: #227AFF;
+        border-radius: 20px;
+        border: 1px solid #227AFF;
+        color: #FFFFFF;
+        font-weight: 400;
+        font-size: 16px;
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .await {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 42px;
+        background: #FFFFFF;
+        border: 1px solid #227AFF;
+        border-radius: 20px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #2E3B50;
+        p {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        svg {
+            margin-left: 15px;
+            animation: rotation 2s linear infinite;
+        }
+        .progress {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #227AFF;
+            border-radius: 18px;
+            height: 100%;
+            font-weight: 400;
+            font-size: 16px;
+            color: #fff;
+        }
+        .restart {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            font-weight: 400;
+            font-size: 14px;
+            color: #fff;
+            background: #227AFF;
+            border: 1px solid #227AFF;
+            border-radius: 60px;
+            padding: 4px 22px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .restartSet {
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 8px);
+            transform: translateX(-50%);
+            padding: 16px 4px;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+            border-radius: 20px;
+            p {
+                text-align: center;
+                font-weight: 500;
+                font-size: 16px;
+                color: #2E3B50;
+            }
+            .buttons {
+                display: flex;
+                align-items: center;
+                margin-top: 16px;
+                button {
+                    margin: 0 10px;
+                    background: #227AFF;
+                    border-radius: 60px;
+                    border: 1px solid#227AFF;
+                    padding: 8px 16px;
+                    font-weight: 400;
+                    font-size: 12px;
+                    color: #fff;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

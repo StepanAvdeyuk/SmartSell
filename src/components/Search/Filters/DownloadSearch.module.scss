@@ -1,0 +1,14 @@
+.downloadSearch {
+    margin: 0 4px;
+    margin-bottom: 20px;
+    height: 36px;
+    background: #227AFF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    &:hover {
+        cursor: pointer;
+    }
+}

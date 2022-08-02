@@ -1,0 +1,21 @@
+.searchName {
+    height: 36px;
+    width: 122px;
+    background: #FFFFFF;
+    border: 1px solid #DADFE9;
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0 4px;
+    margin-bottom: 20px;
+    color: #5F7289;
+    &::placeholder {
+        color: #5F7289;
+        // border-bottom: 1px solid #5F7289;
+        text-decoration: underline;
+    }
+    &.big {
+        width: 286px;
+    }
+}
