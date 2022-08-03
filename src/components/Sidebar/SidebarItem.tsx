@@ -9,16 +9,28 @@ type SidebarItemProps = {
     item: MenuData,
     i: number,
     className: string,
-    onClick: React.MouseEventHandler,
-    activePage: number,
-    isHover: boolean
+    onClick: any,
+    activePage: number
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({item, i, className, onClick, activePage, isHover}) => {
+const SidebarItem: React.FC<SidebarItemProps> = React.memo(({item, i, className, onClick, activePage}) => {
+
+    const [isOpenUl, setIsOpenUl] = React.useState(false);
+
+    function toggleIsOpenUl() {
+        setIsOpenUl(!isOpenUl)
+    }
 
     const ulRef = React.useRef<HTMLUListElement>(null);
 
     const [paddingBottom, setPaddingBottom] = React.useState(0);
+
+    React.useEffect(() => {
+        if (activePage !== i) {
+            setPaddingBottom(0);
+            setIsOpenUl(false);
+        }
+    }, [activePage])
 
     React.useEffect(() => {
         if (ulRef.current?.scrollHeight) {
@@ -26,30 +38,54 @@ const SidebarItem: React.FC<SidebarItemProps> = ({item, i, className, onClick, a
         } else {
             setPaddingBottom(0);
         }
-        if (activePage !== i || !isHover) {
+        if (!isOpenUl)  {
             setPaddingBottom(0);
         }
-    }, [ulRef, className, activePage, isHover])
+    }, [ulRef, className, activePage, isOpenUl])
 
-    return (
-    <Link to={item.link} className={className} onClick={onClick} style={{paddingBottom: `${paddingBottom}px`}}>
-        <div className={styles.icon}>
-            {getIcon(i + 1)}
-        </div>
-        <div className={styles.name}>
-            {item.name}
-            {(item.list.length > 0) && <ul ref={ulRef} className={styles.ul}>
-                {item.list.map((element, i) => {
-                    if (item.listLink) {
-                        return <Link to={item.listLink[i]}><li key={i}>{element}</li></Link>
-                    } else {
-                        return <li key={i}>{element}</li>;
-                    }
-                })}
-            </ul>}
-        </div>
-    </Link>
-    )
-}
+    function wrapperClick() {
+        if (activePage !== i) {
+            onClick(i);
+        }
+        toggleIsOpenUl();
+    }
+
+    const SidebarItemBody = () => {
+        return (
+            <>
+            <div className={styles.icon}>
+                {getIcon(i + 1)}
+            </div>
+            <div className={isOpenUl ? styles.name + ' ' + styles.active : styles.name}>
+                <p>{item.name}</p>
+                {(item.list.length > 0) && <ul ref={ulRef} className={styles.ul} onClick={(e) => e.stopPropagation()}>
+                    {item.list.map((element, i) => {
+                        if (item.listLink) {
+                            return <Link to={item.listLink[i]}><li key={i}>{element}</li></Link>
+                        } else {
+                            return <li key={i}>{element}</li>;
+                        }
+                    })}
+                </ul>}
+            </div>
+            </>
+        )
+    }
+
+    if (item.link) {
+        return (
+            <Link to={item.link} className={className} onClick={wrapperClick} style={{paddingBottom: `${paddingBottom}px`}}>
+                <SidebarItemBody/>
+            </Link>
+        )
+    }
+    else {
+        return (
+            <div className={className} onClick={wrapperClick} style={{paddingBottom: `${paddingBottom}px`}}>
+                <SidebarItemBody/>
+            </div>
+        )
+    }
+})
 
 export default SidebarItem;

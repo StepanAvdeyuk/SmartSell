@@ -11,31 +11,6 @@
     margin-left: 5px;
 }
 
-@keyframes liIn {
-    0%{
-        opacity: 0;
-    }
-    30% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.name {
-    opacity: 0;
-    width: 0;
-    // display: none;
-    margin-left: 5px;
-    font-size: 18px;
-    color: #000;
-    font-weight: 500;
-    transition: all 0.25s ease;
-    min-width: 130px;
-    position: relative;
-}
-
 .wrapper {
     position: fixed;
     top: 0;
@@ -43,17 +18,14 @@
     transform: translateX(-580px);  // половина контейнера
     z-index: 10;
     width: 110px;
-    transition: all .4s ease;
-    &.active {
+    transition: all .35s ease;
+    &:hover {
         width: 310px;
         .name {
-            width: auto;
-            animation: liIn 0.4s ease;
             opacity: 1;
         }
     } 
     height: 100%;
-    // background-color: azure;
     display: flex;
     flex-direction: column; 
     align-items: start;
@@ -62,9 +34,26 @@
     background-color: #fff;
 }
 
+.name {
+    opacity: 0;
+    margin-left: 5px;
+    font-size: 18px;
+    color: #000;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 130px;
+    position: relative;
+    &.active {
+        .ul {
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+}
+
 .ul {
     opacity: 0;
-    height: 0;
+    pointer-events: none;
     transition: all 0.3s ease;
     position: absolute;
     font-weight: 400;
@@ -137,12 +126,10 @@
             filter: drop-shadow(0px 8px 15px rgba(34, 122, 255, 0.25));
         }
         .name {
-            color: #227AFF;
+            p {
+                color: #227AFF;
+            }
             margin-left: 25px;
-        }
-        .ul {
-            height: auto;
-            opacity: 1;
         }
     }
     &:last-child {

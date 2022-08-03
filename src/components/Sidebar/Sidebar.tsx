@@ -8,7 +8,7 @@ import SidebarItem from './SidebarItem';
 export type MenuData = {
 	name: string,
 	list: string[],
-	link: string,
+	link?: string,
 	listLink?: string[]
 }
 
@@ -21,7 +21,6 @@ const menu: MenuData[] = [
 	{
 		name: 'Поисковик',
 		list: ['Поиск по товарам', 'Поиск брендов', 'Поиск по продавцам', 'Поиск по категориям', 'Поиск по избранному', 'История поиска'],
-		link: '/search',
 		listLink: ['/search/goods', '/search/brands', '/search/sellers', '/search/category', '/search', '/search']
 	}, 
 	{
@@ -59,13 +58,13 @@ const menu: MenuData[] = [
 const Sidebar: React.FC = () => {
 
 	const [activePage, setActivePage] = React.useState(0);
-	const sidebarRef = useRef(null);
-	const isHover = useHover(sidebarRef);
 
-	const wrapperClass = isHover ? styles.wrapper + ' ' + styles.active : styles.wrapper;
+	function setPage(i: number) {
+		setActivePage(i);
+	}
 
 	return ( 
-		<div className={wrapperClass} ref={sidebarRef}>
+		<div className={styles.wrapper}>
 			<Link to='/' className={styles.logo}>
 				Smart<br/>Sell
 			</Link>
@@ -74,10 +73,10 @@ const Sidebar: React.FC = () => {
 					const sidabarClass = activePage === i ? styles.item + ' ' + styles.active : styles.item;
 					return <SidebarItem  
 								className={sidabarClass} 
-								onClick={() => setActivePage(i)} 
+								onClick={setPage} 
 								item={item} i={i} key={i} 
-								activePage={activePage} 
-								isHover={isHover}/>
+								activePage={activePage}
+								/>
 				})}
 			</div>
 		</div>
