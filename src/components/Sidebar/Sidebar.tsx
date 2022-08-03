@@ -8,7 +8,8 @@ import SidebarItem from './SidebarItem';
 export type MenuData = {
 	name: string,
 	list: string[],
-	link: string
+	link: string,
+	listLink?: string[]
 }
 
 const menu: MenuData[] = [
@@ -19,8 +20,9 @@ const menu: MenuData[] = [
 	}, 
 	{
 		name: 'Поисковик',
-		list: ['Поиск по товарам', 'Поиск брендов', 'Поиск по продавцу', 'Поиск по категориям', 'Поиск по избранному', 'История поиска'],
-		link: '/search/sellers'
+		list: ['Поиск по товарам', 'Поиск брендов', 'Поиск по продавцам', 'Поиск по категориям', 'Поиск по избранному', 'История поиска'],
+		link: '/search',
+		listLink: ['/search/goods', '/search/brands', '/search/sellers', '/search/category', '/search', '/search']
 	}, 
 	{
 		name: 'Инвентарь',

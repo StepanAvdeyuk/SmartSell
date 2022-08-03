@@ -18,6 +18,9 @@
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
     border-radius: 20px;
     justify-content: space-between;
+    &.p30 {
+        padding: 30px;
+    }
 }
 
 .switchFilter {

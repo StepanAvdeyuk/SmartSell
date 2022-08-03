@@ -15,7 +15,7 @@
         height: 0;
         width: 0;
         visibility: hidden;
-    }
+    } 
     
     label {
         cursor: pointer;
@@ -27,11 +27,18 @@
         display: block;
         border-radius: 100px;
         position: relative;
+        &.active {
+            background: #227AFF;
+            &:after {
+                left: calc(100% - 2px);
+                transform: translateX(-100%);
+            }
+        }
     }
 
-    label:active:after {
-        width: 20px; // ширина, если зажать ЛКМ
-    }
+    // label:active:after {
+    //     width: 20px; // ширина, если зажать ЛКМ
+    // }
     
     label:after {
         content: '';
@@ -44,14 +51,38 @@
         border-radius: 90px;
         transition: 0.3s;
     }
-    
-    input:checked + label {
-        background: #227AFF;
+
+    position: relative;
+    .name {
+        font-weight: 400;
+        font-size: 14px;
+        color: #2E3B50;
+        margin-right: 6px;
+        &:hover {
+            .helper {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
     }
-    
-    input:checked + label:after {
-        left: calc(100% - 2px);
-        transform: translateX(-100%);
+    .helper {
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.2s ease;
+        position: absolute;
+        z-index: 2;
+        line-height: 20px;
+        left: 0;
+        font-weight: 400;
+        font-size: 14px;
+        color: #000;
+        top: calc(100% + 6px);
+        max-width: 355px;
+        width: max-content;
+        padding: 10px 14px;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+        border-radius: 10px;
     }
     
 }

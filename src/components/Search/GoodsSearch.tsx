@@ -11,6 +11,7 @@ import TextAreaFilter from './Filters/TextAreaFilter';
 import RangeFilter from './Filters/RangeFilter';
 import SearchBar from './SearchBar';
 import MyFilter from './Filters/MyFilter';
+import ToggleSwitchFilter from './Filters/ToggleSwitchFilter';
 
 import styles from './GoodsSearch.module.scss'
 
@@ -301,6 +302,12 @@ const GoodsSearch = () => {
                     case 'SwitchFilter': 
                         if (item.payload) {
                             return <SwitchFilter {...item.payload}/>
+                        } else {
+                            return null
+                        }
+                    case 'ToggleSwitchFilter':
+                        if (item.payload) {
+                            return <ToggleSwitchFilter {...item.payload}/>
                         } else {
                             return null
                         }

@@ -21,7 +21,7 @@ type configFiltersType = {
     payload?: any
 }
 
-const SellersSearch = () => {
+const BrandSearch = () => {
 
     const configFilters: configFiltersType[] = [
         {
@@ -60,117 +60,154 @@ const SellersSearch = () => {
             },
         },
         {
-            component: 'TextAreaFilter',
-            payload: {
-                name: 'Имя продавца',
-				helper: 'Поиск продавца по имени (по одному имени или несколько одновременно)'
-            }
+            component: 'SearchByName'
         },
-		{
-			component: 'TextFilter',
-			payload: {
-				name: 'Seller ID',
-				helper: 'Поиск продавца по его идентификатору (по одному идентификатору или несколько одновременно)'
-			}
-		},
-		{
+        {
             component: 'SwitchFilter',
             payload: {
                 name: 'Категория',
                 childrenItems: ['Категория 1 ', 'Категория 2']
             },
         },
+		{
+            component: 'RangeFilter',
+            payload: {
+                name: 'Amazon In Stock Rate %',
+                min: '24',
+                max: '24',
+                helper: 'Сколько из всех продавцов в процентах продаёт Amazon для данного товара'
+            }
+        },
         {
             component: 'RangeFilter',
             payload: {
-                name: 'Месячный доход $',
+                name: 'Количество продавцов',
                 min: '24',
                 max: '24',
-				helper: 'Оборот в $ по всем товарам'
+                helper: 'Среднее количество селлеров от и до для всех товаров'
             }
         },
-		{
+        {
             component: 'RangeFilter',
             payload: {
-                name: 'FBA %',
+                name: 'Количество FBA селлеров',
                 min: '24',
-                max: '24',
-				helper: 'Какой % товаров от всех у его инвентаря он продает через FBA'
+                max: '24'
             }
         },
-		{
+        {
             component: 'RangeFilter',
             payload: {
-                name: 'FBM %',
+                name: 'Количество FBM селлеров',
                 min: '24',
-                max: '24',
-				helper: 'Какой % товаров от всех у его инвентаря он продает через FBM'
+                max: '24'
             }
         },
-		{
+        {
             component: 'RangeFilter',
             payload: {
-                name: 'Количество ASIN',
+                name: 'Количество FBM Prime селлеров',
                 min: '24',
-                max: '24',
-				helper: 'Количество товаров, которое есть в инвенторе'
+                max: '24'
             }
         },
-		{
+        {
             component: 'RangeFilter',
             payload: {
-                name: 'TOP ASIN',
+                name: 'Средняя цена продажи $',
                 min: '24',
                 max: '24',
-				helper: 'Количество товаров, которое есть в инвенторе и которые имеют оборот в месяц более чем 10к$'
+                helper: 'Средняя цена продажи от и до по всем товарам'
             }
         },
-		{
-			component: 'TextFilter',
-			payload: {
-				name: 'Business Name',
-				helper: 'Официальное название продавца'
-			}
-		},
-		{
-			component: 'TextFilter',
-			payload: {
-				name: 'Страна',
-				helper: 'Cтрана, где зарегистрирован продавец'
-			}
-		},
-		{
-			component: 'TextFilter',
-			payload: {
-				name: 'Штат',
-				helper: 'Штат, в котором зарегистрирован продавец'
-			}
-		},
-		{
+        {
             component: 'RangeFilter',
             payload: {
-                name: 'Охват бренда',
+                name: 'Ежемесячный доход',
                 min: '24',
-                max: '24',
-				helper: 'Количество брендов, с которым данный продавец имеет более 60% предполагаемых продаж, это указывает на связь с брендом'
+                max: '24'
             }
         },
-		{
+        {
             component: 'RangeFilter',
             payload: {
-                name: 'Количество продаваемых брендов',
+                name: 'Средний размер товара',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Количество продуктов в основной категории',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Количетсво продуктов в основной подкатегории',
+                min: '24',
+                max: '24'
+            }
+        },
+        {
+            component: 'ToggleSwitchFilter',
+            payload: {
+                name: 'Storefront',
+                id: 'rdvff',
+                helper: 'Бренд оформлен на Amazon как отдельный сайт'
+            }
+        },
+        {
+            component: 'TextFilter',
+            payload: {
+                name: 'Dominant seller',
+                helper: 'На долю этого продавца припадает N% продаж от всех продаж этого бренда'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Конкуренция TOP',
+                min: '24%',
+                max: '24%',
+                helper: 'Между продавцами которые наибольше продают, разница в продажах не более указанного процента, от большего к меньшему.'
+            }
+        },
+        {
+            component: 'ToggleSwitchFilter',
+            payload: {
+                name: 'Исключить потенциальных правообладателей',
+                id: 'g53fre'
+            }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Marketplaces Amazon',
                 min: '24',
                 max: '24',
-				helper: 'Количество брендов, которые продавец продает больше чем на 1к$ в месяц.'
+                helper: 'Число в скольких странах на Amazon продается еще этот бренд'
             }
-        }
+        },
+        {
+            component: 'RangeFilter',
+            payload: {
+                name: 'Другие маркетплейсы',
+                min: '24',
+                max: '24',
+                helper: 'Число в скольки других маркетплейсах продается этот бренд'
+            }
+        },
     ]
 
     return (
     <div className={styles.wrapper}>
-        <h2 className={styles.title}>Поиск по продавцам</h2>
+        <h2 className={styles.title}>Поиск по брендам</h2>
         <div className={styles.filters}>
-            {configFilters.map(item => {
+            {configFilters.map((item, i) => {
                 switch (item.component) {
                     case 'MyFilter':
                             return <MyFilter/> 
@@ -208,12 +245,12 @@ const SellersSearch = () => {
 						} else {
 							return null
 						}
-					case 'ToggleSwitchFilter':
-						if (item.payload) {
-							return <ToggleSwitchFilter {...item.payload}/>
-						} else {
-							return null
-						}
+                    case 'ToggleSwitchFilter':
+                        if (item.payload) {
+                            return <ToggleSwitchFilter key={i} {...item.payload}/>
+                        } else {
+                            return null
+                        }
                     default:
                         return null
                 }
@@ -224,4 +261,4 @@ const SellersSearch = () => {
     )
 }
 
-export default SellersSearch
+export default BrandSearch

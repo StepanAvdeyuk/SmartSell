@@ -40,7 +40,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({item, i, className, onClick, a
             {item.name}
             {(item.list.length > 0) && <ul ref={ulRef} className={styles.ul}>
                 {item.list.map((element, i) => {
-                    return <li key={i}>{element}</li>;
+                    if (item.listLink) {
+                        return <Link to={item.listLink[i]}><li key={i}>{element}</li></Link>
+                    } else {
+                        return <li key={i}>{element}</li>;
+                    }
                 })}
             </ul>}
         </div>
