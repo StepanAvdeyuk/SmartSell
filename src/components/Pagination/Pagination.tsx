@@ -30,10 +30,10 @@ const Pagination = () => {
 	return (
 	<div className={styles.pagination}>
 		<div className={styles.prev}>
-			{(activePage > 1) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg className={(activePage > 1) ? styles.active : ''} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M9.5 6L2.5 6" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
 				<path d="M6 9.5L2.5 6L6 2.5" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
-			</svg>}
+			</svg>
 			<button onClick={decPage}>Предыдущая</button>
 		</div>
 		<ul>
@@ -56,10 +56,10 @@ const Pagination = () => {
 		</ul>
 		<div className={styles.next}>
 			<button onClick={incPage}>Следующая</button>
-			{(activePage < count) && <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg className={(activePage < count) ? styles.active : ''} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M2.5 6H9.5" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
 				<path d="M6 2.5L9.5 6L6 9.5" stroke="#227AFF" stroke-linecap="round" stroke-linejoin="round"/>
-			</svg>}
+			</svg>
 		</div>
 	</div>
 	)

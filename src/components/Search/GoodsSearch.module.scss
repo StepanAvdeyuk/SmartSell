@@ -1,5 +1,9 @@
 .wrapper {
     margin-top: 25px;
+    .switchFilter {
+        margin: 0 4px;
+        margin-bottom: 20px;
+    }
 }
 
 .title {
@@ -24,8 +28,6 @@
 }
 
 .switchFilter {
-    margin: 0 4px;
-    margin-bottom: 20px;
     height: 36px;
     display: flex;
     align-items: center;

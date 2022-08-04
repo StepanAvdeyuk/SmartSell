@@ -11,6 +11,8 @@ import GoodsSearch from './components/Search/GoodsSearch';
 import SellersSearch from './components/Search/SellersSearch';
 import CategorySearch from './components/Search/CategorySearch';
 import BrandSearch from './components/Search/BrandSearch';
+import FavouritesSearch from './components/Search/FavouritesSearch';
+import SearchHistory from './components/Search/SearchHistory';
 
 const App: React.FC = () => {
 	return (
@@ -25,6 +27,8 @@ const App: React.FC = () => {
 					<Route path='sellers' element={<SellersSearch/>}/>
 					<Route path='category' element={<CategorySearch/>}/>
 					<Route path='brands' element={<BrandSearch/>}/>
+					<Route path='favourites' element={<FavouritesSearch/>}/>
+					<Route path='history' element={<SearchHistory/>}/>
 				</Route>
 			</Routes>
        	</div>

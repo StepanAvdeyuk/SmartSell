@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import styles from './InfoNotifications.module.scss';
 
@@ -17,10 +18,10 @@ const InfoNotifications = () => {
   return (
     <div className={styles.wrapper}>
         {data.map((item) => {
-            return <div className={styles.item}>
+            return <Link to='/notifications' className={styles.item}>
                 <div className={styles.name}>{item.name}</div>
                 <div className={styles.count}>{item.count}</div>
-            </div>
+            </Link>
         })}
     </div>
   )

@@ -21,7 +21,7 @@ const menu: MenuData[] = [
 	{
 		name: 'Поисковик',
 		list: ['Поиск по товарам', 'Поиск брендов', 'Поиск по продавцам', 'Поиск по категориям', 'Поиск по избранному', 'История поиска'],
-		listLink: ['/search/goods', '/search/brands', '/search/sellers', '/search/category', '/search', '/search']
+		listLink: ['/search/goods', '/search/brands', '/search/sellers', '/search/category', '/search/favourites', '/search/history']
 	}, 
 	{
 		name: 'Инвентарь',
@@ -58,24 +58,27 @@ const menu: MenuData[] = [
 const Sidebar: React.FC = () => {
 
 	const [activePage, setActivePage] = React.useState(0);
+	const wrapRef = React.useRef(null);
+	const isHover = useHover(wrapRef);
 
 	function setPage(i: number) {
 		setActivePage(i);
 	}
 
 	return ( 
-		<div className={styles.wrapper}>
+		<div className={styles.wrapper} ref={wrapRef}>
 			<Link to='/' className={styles.logo}>
 				Smart<br/>Sell
 			</Link>
 			<div className={styles.sidebarItemWrapper}>
 				{menu.map((item, i) => {
 					const sidabarClass = activePage === i ? styles.item + ' ' + styles.active : styles.item;
-					return <SidebarItem  
+					return <SidebarItem 
+								onClick={setPage}  
 								className={sidabarClass} 
-								onClick={setPage} 
 								item={item} i={i} key={i} 
 								activePage={activePage}
+								isHover={isHover}
 								/>
 				})}
 			</div>

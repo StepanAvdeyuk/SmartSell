@@ -26,6 +26,12 @@ const Header: React.FC = () => {
 		setDashboardPopup(!dashboardPopup);
 	} 
 
+	const [infoNotificationsPopup, setInfoNotificationsPopup] = React.useState(false);
+
+	function toggleInfoNotificationsPopup() {
+		setInfoNotificationsPopup(!infoNotificationsPopup);
+	}
+
 	return (
 		<div className={styles.wrapper}>
 
@@ -40,7 +46,7 @@ const Header: React.FC = () => {
 				<div></div>
 			</div>
 
-			<div className={styles.notificationWrapper}>
+			<div className={styles.notificationWrapper} onClick={toggleInfoNotificationsPopup}>
 				<img src={bellIcon} alt="bell"/>
 			</div>
 
@@ -62,7 +68,7 @@ const Header: React.FC = () => {
 			{dashboardPopup ? <DashboardPopup/> : null}
 			{false ? <SystemNotifications/> : null}
 			{false ? <DeveloperNotifications/> : null}
-			{false ? <InfoNotifications/> : null}
+			{infoNotificationsPopup ? <InfoNotifications/> : null}
 		</div>
 	)      
 }

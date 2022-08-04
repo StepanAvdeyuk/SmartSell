@@ -14,7 +14,6 @@ declare module '*.jpg' {
     export default content;
 }
 
-
 declare module '*.scss' {
     const classNames: Record<string, string>;
     export default classNames;

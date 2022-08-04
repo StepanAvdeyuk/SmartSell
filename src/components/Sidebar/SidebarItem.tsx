@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import styles from './Sidebar.module.scss'
 import { getIcon } from './getIcon';
@@ -10,10 +11,11 @@ type SidebarItemProps = {
     i: number,
     className: string,
     onClick: any,
-    activePage: number
+    activePage: number,
+    isHover: boolean
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = React.memo(({item, i, className, onClick, activePage}) => {
+const SidebarItem: React.FC<SidebarItemProps> = React.memo(({item, i, className, onClick, activePage, isHover}) => {
 
     const [isOpenUl, setIsOpenUl] = React.useState(false);
 
@@ -38,10 +40,10 @@ const SidebarItem: React.FC<SidebarItemProps> = React.memo(({item, i, className,
         } else {
             setPaddingBottom(0);
         }
-        if (!isOpenUl)  {
-            setPaddingBottom(0);
+        if (!isOpenUl || !isHover)  {
+            setPaddingBottom(0); 
         }
-    }, [ulRef, className, activePage, isOpenUl])
+    }, [ulRef, className, activePage, isOpenUl, isHover])
 
     function wrapperClick() {
         if (activePage !== i) {
@@ -56,18 +58,18 @@ const SidebarItem: React.FC<SidebarItemProps> = React.memo(({item, i, className,
             <div className={styles.icon}>
                 {getIcon(i + 1)}
             </div>
-            <div className={isOpenUl ? styles.name + ' ' + styles.active : styles.name}>
-                <p>{item.name}</p>
-                {(item.list.length > 0) && <ul ref={ulRef} className={styles.ul} onClick={(e) => e.stopPropagation()}>
-                    {item.list.map((element, i) => {
-                        if (item.listLink) {
-                            return <Link to={item.listLink[i]}><li key={i}>{element}</li></Link>
-                        } else {
-                            return <li key={i}>{element}</li>;
-                        }
-                    })}
-                </ul>}
-            </div>
+                <div className={isOpenUl ? styles.name + ' ' + styles.active : styles.name}>
+                    <p>{item.name}</p>
+                        {(item.list.length > 0) && <ul ref={ulRef} className={styles.ul} onClick={(e) => e.stopPropagation()}>
+                            {item.list.map((element, i) => {
+                                if (item.listLink) {
+                                    return <Link to={item.listLink[i]}><li key={i}>{element}</li></Link>
+                                } else {
+                                    return <li key={i}>{element}</li>;
+                                }
+                            })}
+                        </ul>}
+                </div>
             </>
         )
     }

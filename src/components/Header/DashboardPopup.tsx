@@ -7,10 +7,27 @@ import styles from './DashboardPopup.module.scss'
 
 const DashboardPopup = () => {
 	const [addDashboardPopup, setAddDashboardPopup] = React.useState(false);
+	const dashboarhRef = React.useRef(null);
 
 	function toggleAddDashboardPopup() {
 		setAddDashboardPopup(!addDashboardPopup);
 	} 
+
+	React.useEffect(() => {
+		const handleClick = (e: MouseEvent) => {
+			const _e = e as MouseEvent & {
+				path: Node[];
+			}
+
+			if (dashboarhRef.current && !_e.path.includes(dashboarhRef.current)) {
+				setAddDashboardPopup(false);
+			}
+		}	
+		document.body.addEventListener('click', handleClick)
+		return () => {
+			document.body.removeEventListener('click', handleClick)
+		}
+	}, [])
 
 	const data = [
 		{
@@ -44,7 +61,7 @@ const DashboardPopup = () => {
 	]
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={styles.wrapper} ref={dashboarhRef}>
 			{data.map(item => <div className={styles.item} onClick={item.f}>
 				{item.name}
 			</div>)}
