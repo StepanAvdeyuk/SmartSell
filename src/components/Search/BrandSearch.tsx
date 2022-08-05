@@ -156,7 +156,6 @@ const BrandSearch = () => {
             component: 'ToggleSwitchFilter',
             payload: {
                 name: 'Storefront',
-                id: 'rdvff',
                 helper: 'Бренд оформлен на Amazon как отдельный сайт'
             }
         },
@@ -179,8 +178,7 @@ const BrandSearch = () => {
         {
             component: 'ToggleSwitchFilter',
             payload: {
-                name: 'Исключить потенциальных правообладателей',
-                id: 'g53fre'
+                name: 'Исключить потенциальных правообладателей'
             }
         },
         {

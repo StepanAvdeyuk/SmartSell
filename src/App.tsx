@@ -13,6 +13,7 @@ import CategorySearch from './components/Search/CategorySearch';
 import BrandSearch from './components/Search/BrandSearch';
 import FavouritesSearch from './components/Search/FavouritesSearch';
 import SearchHistory from './components/Search/SearchHistory';
+import GoosList from './components/Search/GoodsList/GoosList';
 
 const App: React.FC = () => {
 	return (
@@ -30,6 +31,7 @@ const App: React.FC = () => {
 					<Route path='favourites' element={<FavouritesSearch/>}/>
 					<Route path='history' element={<SearchHistory/>}/>
 				</Route>
+				<Route path="goods_list" element={<GoosList/>}/>
 			</Routes>
        	</div>
 	);

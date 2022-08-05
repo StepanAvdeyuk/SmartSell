@@ -1,0 +1,29 @@
+.wrapper {
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        
+        &:checked + label svg {
+            opacity: 1;
+        }
+    }
+    
+    input + label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #227AFF;
+        width: 22px; 
+        height: 22px;
+        border-radius: 100px;
+        cursor: pointer;
+        
+        svg {
+            cursor: pointer;
+            transition: all .1s ease;
+            pointer-events: none;
+            opacity: 0;
+        }
+    }
+}

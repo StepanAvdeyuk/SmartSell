@@ -31,7 +31,7 @@ const menu: MenuData[] = [
 	{
 		name: 'Заказы',
 		list: [''],
-		link: '/'
+		link: '/goods_list'
 	},
 	{
 		name: 'Отчеты',
