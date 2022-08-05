@@ -19,7 +19,7 @@ const App: React.FC = () => {
 	return (
         <div className="container">
 			<Header/>
-			<Sidebar/>
+			{/* <Sidebar/> */}
 			<Routes>
 				<Route path="/" element={<MainPage/>}/>
 				<Route path="/notifications" element={<NotificationsPage/>}/>

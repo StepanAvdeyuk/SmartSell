@@ -6,8 +6,9 @@
     color: #243350;
 }
 
-.flex {
+.top {
     display: flex;
+    position: relative;
 }
 
 .mr22 {
@@ -16,13 +17,19 @@
 
 .switch {
     height: 36px;
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0 16px;
     border: 1px solid #227AFF;
     background-color: #DDECFF;
     border-radius: 100px;
-    svg {
+    &.active {
+        .arrowSvg {
+            transform: rotate(-180deg);
+        }
+    }
+    .arrowSvg {
         margin-left: 8px;
         margin-top: 3px;
         transition: all 0.2s ease;
@@ -49,42 +56,24 @@
     }
 }
 
-.top {
+
+.topLeft {
+    height: 100%;
     display: flex;
-    margin-top: 50px;
-    height: 50px;
-    .left {
-        height: 100%;
-        width: 138px;
-        display: flex;
-        align-items: center;
-        padding-left: 15px;
-        background-color: #F6FAFF;
-        border-radius: 10px 0 0 0;
-        border-bottom: 1px solid #E6E6E6;
-        border-right: 1px solid #E6E6E6;
-        p {
-            margin-left: 10px;
-            font-weight: 400;
-            font-size: 12px;
-            color: #5F7289;
-        }
-    }
-    .right {
-        height: 100%;
-        width: 862px;
-        display: flex;
-        align-items: center;
-        border-radius: 0 10px 0 0;
-        border-bottom: 1px solid #E6E6E6;
-        background-color: #F6FAFF;
-    }
+    align-items: center;
+    border-radius: 10px 0 0 0;
+    padding-left: 15px;
+    background-color: #F6FAFF;
+    border-bottom: 1px solid #E6E6E6;
 }
 
 .sortType {
     display: flex;
     padding: 0 30px;
+    height: 100%;
     align-items: center;
+    position: relative;
+    border-bottom: 1px solid #E6E6E6;
     p {
         color: #5F7289;
         font-weight: 400;
@@ -97,6 +86,7 @@
         margin-left: 12px;
         width: 11px;
         height: 6px;
+        transition: all .2s ease;
     }
     .burgerSvg {
         margin-left: 18px;
@@ -106,48 +96,80 @@
 }
 
 .content {
-    // margin-top: 50px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 50px;
+    border-radius: 10px 10px 0 0;
+    display: grid;
+    align-items: center;
+    grid-template-rows: 50px;
+    grid-auto-rows: 60px;
+    background-color: #F6FAFF;
 }
 
-.item {
-    height: 60px;
-    background-color: #F6FAFF;
-    &:nth-child(even) {
+
+.itemLeft {
+    display: flex;
+    padding-left: 15px;
+    height: 100%;
+    align-items: center;
+    &.darkBG {
         background-color: #EFF6FF;
     }
+    // background-color: #F6FAFF;
+}
+
+.pic {
+    width: 40px;
+    height: 40px;
     display: flex;
-    .left {
-        display: flex;
-        padding-left: 15px;
-        width: 138px;
-        height: 100%;
-        align-items: center;
-        border-right: 1px solid #E6E6E6;
-        .pic {
-            width: 40px;
-            height: 40px;
-            margin-left: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #FFFFFF;
-            box-shadow: 0px 4px 25px rgba(98, 98, 98, 0.07);
-            border-radius: 8px;
-            img {
-                width: 32px;
-            }
-        }
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(98, 98, 98, 0.07);
+    border-radius: 8px;
+    img {
+        width: 32px;
     }
-    .right {
-        display: flex;
-        align-items: center;
-        .textContent {
-            font-weight: 400;
-            font-size: 12px;
-            color: #2E3B50;
-            padding: 0 30px;
+}
+
+.fixedColumn {
+    padding: 0 10px; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &.darkBG {
+        background-color: #EFF6FF;
+    }
+}
+
+.fixedColumnName {
+    font-weight: 400;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #5F7289;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.fixBorder {
+    border-right: 1px solid #E6E6E6;
+}
+
+.textContent {
+    font-weight: 400;
+    font-size: 12px;
+    color: #2E3B50;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    height: 100%;
+    &.darkBG {
+        background-color: #EFF6FF;
+    }
+    &.tdu {
+        span {
+            border-bottom: 1px solid #2E3B50;
         }
     }
 }
@@ -159,3 +181,4 @@
     background-color: #227AFF;
     border-radius: 10px;
 }
+
