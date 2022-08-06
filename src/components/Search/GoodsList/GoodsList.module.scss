@@ -37,6 +37,37 @@
     &:hover {
         cursor: pointer;
     }
+    &:not(.active) {
+        &:hover {
+            .chooseColumns, .actionsList {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+}
+
+.chooseColumns {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.15s ease;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    padding: 12px 20px;
+    width: max-content;
+    span {
+        font-weight: 400;
+        font-size: 14px;
+        color:#000;
+        padding: 4px 0;
+    }
 }
 
 
@@ -51,8 +82,36 @@
     align-items: center;
     height: 15px;
     width: 15px;
+    position: relative;
     &:hover {
         cursor: pointer;
+        .morePopup {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}
+
+.morePopup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    position: absolute;
+    top: -8px;
+    z-index: 2;
+    left: calc(100%);
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 10px 20px;
+    span {
+        font-weight: 400;
+        padding: 4px 0;
+        font-size: 12px;
+        color: #000;
     }
 }
 
@@ -132,10 +191,16 @@
 }
 
 .fixedColumn {
+    font-weight: 400;
+    font-size: 12px;
+    color: #2E3B50;
     padding: 0 10px; 
     height: 100%;
     display: flex;
     align-items: center;
+    span.tdu {
+        border-bottom: 1px solid #2E3B50;
+    }
     &.darkBG {
         background-color: #EFF6FF;
     }
@@ -150,10 +215,12 @@
     font-size: 12px;
     color: #5F7289;
     border-bottom: 1px solid #E6E6E6;
+    padding: 0 10px;
 }
 
 .fixBorder {
     border-right: 1px solid #E6E6E6;
+    padding-right: 25px;
 }
 
 .textContent {
@@ -180,5 +247,61 @@
     margin-top: 15px;
     background-color: #227AFF;
     border-radius: 10px;
+}
+
+.actionsList {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 11px);
+    left: 0;
+    z-index: 2;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    padding: 16px 20px;
+    width: max-content;
+    span {
+        padding: 5px 0;
+        font-weight: 400;
+        font-size: 12px;
+        color: #000;
+        position: relative;
+        &:hover {
+            .addIn {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+    .addIn {
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.15s ease;
+        position: absolute;
+        width: max-content;
+        top: 80%;
+        left: 50%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+        border-radius: 10px;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 12px;
+        color: #000;
+        li {
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            svg {
+                margin-right: 8px;
+            }
+        }
+    }
 }
 

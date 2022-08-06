@@ -1,0 +1,114 @@
+.wrapper {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: calc(100% + 25px);
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    padding: 20px 22px 20px 30px;
+    &:hover {
+        cursor: auto;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column; 
+    max-height: 260px;
+    padding-right: 20px;
+    width: max-content;
+    overflow-y: auto;
+    scrollbar-width: thin;        
+    scrollbar-color: #227AFF #D6DFED;
+}
+
+.content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #D6DFED;
+    border-radius: 20px; 
+  }
+.content::-webkit-scrollbar-thumb {
+    background-color: #227AFF; 
+    border-radius: 20px;      
+}
+
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    svg {
+        transition: all 0.2s ease;
+    }
+    &.active {
+        svg {
+            transform: rotate(-180deg);
+        }
+    }
+    span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #000;
+        margin-right: 40px;
+    }
+}
+
+.popup {
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+    left: 50px;
+    opacity: 0;
+    width: max-content;
+    pointer-events: none;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    transition: all 0.1s ease;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    padding: 10px 16px;
+    p {
+        font-weight: 400;
+        font-size: 12px;
+        color: #000;
+    }
+    textarea {
+        margin-top: 5px;
+        width: 100%;
+        min-width: 125px;
+        min-height: 115px;
+        max-width: 410px;
+        max-height: 450px;
+        border: 1px solid #227AFF;
+        border-radius: 10px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: #000; 
+        padding: 6px 10px;
+    }
+    textarea::-webkit-resizer {
+        background: url('../../../assets/svg/textarea-resize.svg') no-repeat;
+    }
+}

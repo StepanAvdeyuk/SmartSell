@@ -74,6 +74,10 @@
     }
     &:hover {
         cursor: pointer;
+        .howToFix {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
     .pinSvg {
         position: absolute;
@@ -105,11 +109,180 @@
     span {
         font-weight: 400;
         font-size: 12px;
-        padding: 10px 0;
+        padding-top: 10px;
         padding-left: 48px;
         color: #000;
         &:hover {
             cursor: pointer;
         }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+}
+
+.howToFix {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    position: absolute;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    left: calc(100% + 2px);
+    top: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #000;
+        width: max-content;
+        padding: 4px 0;
+    }
+}
+
+.filterSet {
+    display: flex;
+    height: 28px;
+    margin: 0 16px;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border: 1px solid #227AFF;
+    border-radius: 10px;
+    padding: 0 10px;
+    position: relative;
+    &.active {
+        svg {
+            transform: rotate(-180deg);
+        }
+    }
+    svg {
+        transition: all 0.2s ease;
+    }
+    span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #8392AB;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.chooseFilterSet {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    right: 0;
+    top: calc(100% + 10px);
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    padding: 10px 15px;
+    span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #000;
+        padding: 4px 0;
+    }
+}
+
+.filterInput {
+    height: 28px;
+    margin: 0 16px;
+    margin-top: 15px;
+    input {
+        width: 100%;
+        height: 100%;
+        background: #FFFFFF;
+        border: 1px solid #DADFE9;
+        border-radius: 10px;
+        font-weight: 400;
+        font-size: 12px;
+        color: #8392AB;
+        padding: 0 15px;
+    }
+}
+
+
+.topRight {
+    display: flex;
+    align-items: center;
+    margin: 0 26px;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.searchRight {
+    margin-left: 20px;
+    height: 36px;
+    position: relative;
+    input {
+        background: #FFFFFF;
+        border: 1px solid #DADFE9;
+        border-radius: 10px;
+        height: 100%;
+        padding-left: 34px;
+        padding-right: 14px;
+        font-weight: 400;
+        font-size: 12px;
+        color: #5F7289;
+    }
+    svg {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.contentRight {
+    margin: 0 26px;
+    margin-top: 25px;
+    max-height: 260px;
+    overflow-y: auto;
+    scrollbar-width: thin;        
+    scrollbar-color: #227AFF #D6DFED;
+}
+
+.contentRight::-webkit-scrollbar {
+    width: 5px;
+}
+
+.contentRight::-webkit-scrollbar-track {
+    background: #D6DFED;
+    border-radius: 20px; 
+  }
+.contentRight::-webkit-scrollbar-thumb {
+    background-color: #227AFF; 
+    border-radius: 20px;      
+}
+
+.itemRight {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #000000;
+        margin-left: 20px;
     }
 }

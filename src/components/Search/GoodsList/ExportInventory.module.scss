@@ -1,0 +1,122 @@
+.wrapper {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 16px;
+    padding: 20px 25px;
+    P {
+        margin-top: 15px;
+        font-weight: 400;
+        font-size: 12px;
+        color: #000000;
+    }
+}
+
+.title {
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    color: #243350;
+}
+
+.switch {
+    height: 32px;
+    margin-top: 15px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 335px;
+    background: #FFFFFF;
+    border: 1px solid #DADFE9;
+    border-radius: 10px;
+    position: relative;
+    svg {
+        transition: all 0.2s ease;
+    }
+    &.active {
+        svg {
+            transform: rotate(-180deg);
+        }
+    }
+    span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #5F7289;
+    }
+}
+
+.switchPopup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    position: absolute;
+    z-index: 2;
+    right: -1px;
+    top: calc(100% - 3px);
+    padding: 7px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    span {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 0 18px;
+        border: 1px solid #227AFF;
+        background-color: #DDECFF;
+        border-radius: 100px;
+        margin-bottom: 5px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.toggleFilter {
+    margin-top: 12px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    button {
+        padding: 0 15px;
+        height: 36px;
+        font-weight: 400;
+        font-size: 14px;
+        border-radius: 100px;
+        border: 1px solid#227AFF;
+        &:hover {
+            cursor: pointer;
+        }
+        &.fill {
+            background-color: #227AFF;
+            color: #fff;
+        }
+        &.outline {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+}

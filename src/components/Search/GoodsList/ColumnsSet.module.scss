@@ -68,9 +68,9 @@
 .item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    padding-bottom: 15px;
     &:last-child {
-        margin-bottom: 0;
+        padding-bottom: 0;
     }
     span {
         font-weight: 400;

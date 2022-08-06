@@ -5,10 +5,11 @@ import styles from './ToggleSwitchFilter.module.scss'
 
 type ToggleSwitchFilterProps = {
 	name: string,
-	helper?: boolean
+	helper?: boolean,
+	m0?: boolean
 }
 
-const ToggleSwitchFilter: React.FC<ToggleSwitchFilterProps> = ({name, helper}) => {
+const ToggleSwitchFilter: React.FC<ToggleSwitchFilterProps> = ({name, helper, m0}) => {
 
 	const [htmlId] = useId();
 	const [checked, setChecked] = React.useState(false);
@@ -18,7 +19,7 @@ const ToggleSwitchFilter: React.FC<ToggleSwitchFilterProps> = ({name, helper}) =
 	}
 
 	return (
-	<div className={styles.toggleSwitchFilter}>
+	<div className={m0 ? styles.toggleSwitchFilter + ' ' + styles.m0 : styles.toggleSwitchFilter}>
 		<input type="checkbox" id={htmlId} checked={checked} onChange={changeCheckbox}/><label htmlFor={htmlId} className={checked ? styles.active : ''}>Toggle</label>
 		<div className={styles.name}>
 			{name}
