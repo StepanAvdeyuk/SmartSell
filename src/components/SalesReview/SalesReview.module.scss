@@ -1,0 +1,221 @@
+.wrapper {
+    position: relative;
+    padding-top: 50px;
+    &::before {
+        content: '';
+        height: 1px;
+        width: calc(50vw + 580px); // 50% страницы + половина контейнера
+        position: absolute;
+        top: 0;
+        left: -160px;
+        background-color: #D9E0EA;
+    }
+}
+
+.title {
+    font-weight: 500;
+    font-size: 24px;
+    color: #243350;
+    margin-bottom: 35px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    background: #F6FAFF;
+    border-radius: 10px;
+    width: 940px;
+}
+
+.top {
+    padding: 0 26px;
+    padding-top: 40px;
+}
+
+.input {
+    position: relative;
+    input {
+        height: 44px;
+        width: 100%;
+        padding-left: 42px;
+        padding-right: 18px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #5F7289;
+        background: #FFFFFF;
+        border: 1px solid #DADFE9;
+        border-radius: 10px;
+    }
+    svg {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 18px;
+    }
+}
+
+.config {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.outline {
+    height: 36px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #243350;
+    border: 1px solid #227AFF;
+    border-radius: 150px;
+    background: transparent;
+    padding: 0 18px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.dateWrap {
+    display: flex;
+    align-items: center;
+    span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #243350; 
+    }
+    .date {
+        margin-left: 15px;
+        display: flex;
+        align-items: center;
+        height: 36px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #243350;
+        border: 1px solid #227AFF;
+        border-radius: 150px;
+        background: #DDECFF;
+        padding: 0 16px;
+        &:hover {
+            cursor: pointer;
+        }
+        span {
+            margin-left: 8px;
+        }
+    }
+}
+
+.reveiwTypeWrapper {
+    display: flex;
+}
+
+.reveiwType {
+    height: 36px;
+    width: 36px;
+    border: 1px solid #227AFF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-right: 12px;
+    &:last-child {
+        margin-right: 0;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    svg {
+        fill:#227AFF;
+        transition: all 0.2s ease;
+    }
+    &.active {
+        background-color: #227AFF;
+        svg {
+            fill: #fff;
+        }
+    }
+}
+
+.gridWrapper {
+    display: grid;
+    align-items: center;
+    grid-template-rows: 100px;
+    grid-auto-rows: 40px;
+}
+
+.checkAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.columnName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 14px;
+    span {
+        &:hover {
+            cursor: pointer;
+        }
+        font-weight: 400;
+        font-size: 14px;
+        color: #5F7289;
+        text-align: center;
+    }
+    .svg {
+        margin-left: 4px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+.itemInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 10px;
+    border-right: 2px solid #D5E1EF;
+    &.last {
+        border-right: none;
+    }
+    &.darkBG {
+        background-color: #EFF6FF;
+    }
+    span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #5F7289;
+    }
+}
+
+.totalInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 10px;
+    border-top: 2px solid #D5E1EF;
+    border-right: 2px solid #D5E1EF;
+    &.first {
+        border-radius: 0 0 0 10px;
+    }
+    &.last {
+        border-right: none;
+        border-radius: 0 0 10px 0;
+    }
+    background-color: #E3F0FF;
+    span {
+        font-weight: 500;
+        font-size: 14px;
+        color: #5F7289;
+    }
+}
