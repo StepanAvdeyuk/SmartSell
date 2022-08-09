@@ -15,6 +15,8 @@ import FavouritesSearch from './components/Search/FavouritesSearch';
 import SearchHistory from './components/Search/SearchHistory';
 import GoosList from './components/Search/GoodsList/GoosList';
 import ProductsList from './components/Search/ProductsList/ProductsList';
+import CommodityPairSettings from './components/CommodityPair/CommodityPairSettings';
+import InventoryTags from './components/InventoryTags/InventoryTags';
 
 const App: React.FC = () => {
 	return (
@@ -34,6 +36,8 @@ const App: React.FC = () => {
 				</Route>
 				<Route path="/goods_list" element={<GoosList/>}/>
 				<Route path="/products_list" element={<ProductsList/>}/>
+				<Route path="/pair_settings" element={<CommodityPairSettings/>}/>
+				<Route path="/tags" element={<InventoryTags/>}/>
 			</Routes>
        	</div>
 	);

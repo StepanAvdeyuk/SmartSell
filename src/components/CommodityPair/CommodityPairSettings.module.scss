@@ -1,0 +1,213 @@
+.topSearch {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 44px;
+    width: 880px;
+    .name {
+        display: flex;
+        align-items: center;
+    }
+    p {
+        font-weight: 400;
+        font-size: 16px;
+        color: #000;
+        margin-right: 4px;
+    }
+    span {
+        margin-top: 3px;
+        width: 10px;
+        height: 10px;
+        background: #227AFF;
+        border-radius: 100px;
+        font-weight: 400;
+        font-size: 7px;
+        color: #fff;
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .input {
+        height: 100%;
+        width: 600px;
+        position: relative;
+        input {
+            width: 100%;
+            height: 100%;
+            padding-left: 42px;
+            padding-right: 14px;
+            font-weight: 400;
+            font-size: 14px;
+            color: #5F7289;
+            background: #FFFFFF;
+            border: 1px solid #DADFE9;
+            border-radius: 10px;
+        }
+        svg {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+        }
+    }
+    .save {
+        padding: 0 16px;
+        height: 100%;
+        background: #227AFF;
+        border-radius: 150px;
+        font-weight: 400;
+        font-size: 12px;
+        color: #FFFFFF;
+        border: 1px solid #227AFF;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.filters {
+    margin-top: 30px;
+    display: flex;
+}
+
+.filterItem {
+    margin-right: 20px;
+}
+
+.irregular {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #243350;
+        margin-right: 8px;
+        margin-bottom: 2px;
+    }
+}
+
+.content {
+    margin-top: 45px;
+    width: 880px;
+    display: flex;
+    position: relative;
+}
+
+.contentItem {
+    width: calc(50% - 5px);
+    &:first-child {
+        margin-right: 10px;
+    }
+    height: fit-content;
+    padding: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    h3 {
+        font-weight: 400;
+        color: #000;
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    .setInput {
+        display: flex;
+        .left {
+            width: 160px;
+            padding-top: 8px;
+            span {
+                font-weight: 400;
+                font-size: 14px;
+                color: #2E3B50;
+            }
+        }
+        .right {
+            display: flex;
+            flex-direction: column;
+            .smallText {
+                margin-top: 10px;
+                margin: 0;
+                span {
+                    font-weight: 400;
+                    font-size: 10px;
+                    color: #000;
+                    margin-left: 12px;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+            .rightItem {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                &:first-child {
+                    margin-top: 0;
+                }
+                span {
+                    margin: 0 6px;
+                }
+                .infoText {
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #2E3B50;
+                    margin-left: 10px;
+                }
+                .blueInput {
+                    text-align: center;
+                    height: 36px;
+                    width: 84px;
+                    padding: 0 12px;
+                    background: #DDECFF;
+                    border: 1px solid #227AFF;
+                    border-radius: 150px;
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #243350;
+                    &.bgWhite {
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.switchInput {
+    height: 44px;
+}
+
+.toggleCheck {
+    display: flex;
+    align-items: center;
+    span {
+        margin-left: 8px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #243350;
+    }
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.mt25 {
+    margin-top: 25px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.ml15 {
+    margin-left: 15px;
+}

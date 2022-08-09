@@ -37,10 +37,11 @@
         }
         width: 310px;
         .name {
-            opacity: 1;
-            animation: fadeIn 0.4s ease;
+            display: block;
+            // animation: fadeIn 0.4s ease;
             &.active {
                 .ul {
+                    height: auto;
                     pointer-events: all;
                     opacity: 1;
                 }
@@ -58,7 +59,8 @@
  
 
 .name {
-    opacity: 0;
+    display: none;
+    margin-top: 25px;
     margin-left: 5px;
     font-size: 18px;
     color: #000;
@@ -70,9 +72,10 @@
 
 .ul {
     opacity: 0;
+    height: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
-    position: absolute;
+    transition: all 0.2s ease;
+    // position: absolute;
     font-weight: 400;
     font-size: 14px;
     color: #000;
@@ -127,7 +130,7 @@
     margin-bottom: 10px;
     transition: all 0.3s ease;
     display: flex;
-    align-items: center;
+    // align-items: center;
     &:hover {
         cursor: pointer;
     }
@@ -161,28 +164,4 @@
             margin-top: 0;
         }
     }
-}
-
-.appear {
-    background-color:rgba(34, 122, 255, 0.25);
-}
-
-.appearDone {
-    background-color: blueviolet;
-}
-
-.enter {
-    background-color: salmon;
-}
-
-.enterDone {
-    background-color: tomato;
-}
-
-.exit {
-    background-color: wheat;
-}
-
-.exitDone {
-    background-color: yellow;
 }

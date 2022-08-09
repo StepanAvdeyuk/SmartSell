@@ -38,7 +38,7 @@ const menu: MenuData[] = [
 	{
 		name: 'Отчеты',
 		list: [''],
-		link: '/reports'
+		link: '/pair_settings'
 	}, 
 	{
 		name: 'Сообщения',
@@ -53,15 +53,13 @@ const menu: MenuData[] = [
 	{
 		name: 'Выход',
 		list: [],
-		link: '/exit'
+		link: '/tags'
 	}
 ];
 
 const Sidebar: React.FC = () => {
 
 	const [activePage, setActivePage] = React.useState(0);
-	const wrapRef = React.useRef(null);
-	// const isHover = useHover(wrapRef);
 
 	const [isHover, setIsHover] = React.useState(false);
 	
@@ -70,8 +68,12 @@ const Sidebar: React.FC = () => {
 		setActivePage(i);
 	}
 
+	const off = () => {
+		setIsHover(false)
+	}
+
 	return ( 
-		<div className={isHover ? styles.wrapper + " " + styles.active : styles.wrapper} ref={wrapRef} onMouseLeave={() => setIsHover(false)}>
+		<div className={isHover ? styles.wrapper + " " + styles.active : styles.wrapper} onMouseLeave={off}>
 			<Link to='/' className={styles.logo}>
 				Smart<br/>Sell
 			</Link>

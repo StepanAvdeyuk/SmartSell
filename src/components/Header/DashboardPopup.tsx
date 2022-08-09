@@ -2,7 +2,7 @@ import React from 'react'
 
 import AddDashboard from '../Dashboard/AddDashboard'
 
-import styles from './DashboardPopup.module.scss'
+import styles from './Header.module.scss'
 
 
 const DashboardPopup = () => {
@@ -61,8 +61,8 @@ const DashboardPopup = () => {
 	]
 
 	return (
-		<div className={styles.wrapper} ref={dashboarhRef}>
-			{data.map(item => <div className={styles.item} onClick={item.f}>
+		<div className={styles.dashboardPopupWrapper} ref={dashboarhRef}>
+			{data.map(item => <div className={styles.dashboardPopupItem} onClick={item.f}>
 				{item.name}
 			</div>)}
 			<AddDashboard isOpen={addDashboardPopup} toggleOpen={toggleAddDashboardPopup}/>
