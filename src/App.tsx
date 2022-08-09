@@ -20,7 +20,7 @@ const App: React.FC = () => {
 	return (
         <div className="container">
 			<Header/>
-			{/* <Sidebar/> */}
+			<Sidebar/>
 			<Routes>
 				<Route path="/" element={<MainPage/>}/>
 				<Route path="/notifications" element={<NotificationsPage/>}/>
@@ -32,8 +32,8 @@ const App: React.FC = () => {
 					<Route path='favourites' element={<FavouritesSearch/>}/>
 					<Route path='history' element={<SearchHistory/>}/>
 				</Route>
-				<Route path="goods_list" element={<GoosList/>}/>
-				<Route path="products_list" element={<ProductsList/>}/>
+				<Route path="/goods_list" element={<GoosList/>}/>
+				<Route path="/products_list" element={<ProductsList/>}/>
 			</Routes>
        	</div>
 	);

@@ -11,6 +11,18 @@
     margin-left: 5px;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .wrapper {
     position: fixed;
     top: 0;
@@ -19,10 +31,20 @@
     z-index: 10;
     width: 110px;
     transition: all .35s ease;
-    &:hover {
+    &.active {
+        .item {
+            pointer-events: all;
+        }
         width: 310px;
         .name {
             opacity: 1;
+            animation: fadeIn 0.4s ease;
+            &.active {
+                .ul {
+                    pointer-events: all;
+                    opacity: 1;
+                }
+            }
         }
     } 
     height: 100%;
@@ -33,6 +55,7 @@
     border-right: 1px solid #D9E0EA;
     background-color: #fff;
 }
+ 
 
 .name {
     opacity: 0;
@@ -43,12 +66,6 @@
     transition: all 0.3s ease;
     min-width: 130px;
     position: relative;
-    &.active {
-        .ul {
-            pointer-events: all;
-            opacity: 1;
-        }
-    }
 }
 
 .ul {
@@ -87,6 +104,7 @@
 }
 
 .icon {
+    pointer-events: all;
     width: 65px;
     height: 65px;
     display: flex;
@@ -104,6 +122,7 @@
 
 
 .item {
+    pointer-events: none;
     margin-top: 0;
     margin-bottom: 10px;
     transition: all 0.3s ease;
