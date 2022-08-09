@@ -14,12 +14,13 @@ import BrandSearch from './components/Search/BrandSearch';
 import FavouritesSearch from './components/Search/FavouritesSearch';
 import SearchHistory from './components/Search/SearchHistory';
 import GoosList from './components/Search/GoodsList/GoosList';
+import ProductsList from './components/Search/ProductsList/ProductsList';
 
 const App: React.FC = () => {
 	return (
         <div className="container">
 			<Header/>
-			<Sidebar/>
+			{/* <Sidebar/> */}
 			<Routes>
 				<Route path="/" element={<MainPage/>}/>
 				<Route path="/notifications" element={<NotificationsPage/>}/>
@@ -32,6 +33,7 @@ const App: React.FC = () => {
 					<Route path='history' element={<SearchHistory/>}/>
 				</Route>
 				<Route path="goods_list" element={<GoosList/>}/>
+				<Route path="products_list" element={<ProductsList/>}/>
 			</Routes>
        	</div>
 	);

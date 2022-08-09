@@ -26,7 +26,7 @@ const menu: MenuData[] = [
 	{
 		name: 'Инвентарь',
 		list: [],
-		link: '/'
+		link: '/products_list'
 	}, 
 	{
 		name: 'Заказы',

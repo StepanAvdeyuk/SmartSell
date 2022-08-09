@@ -1,0 +1,226 @@
+.top {
+    margin-top: 115px;
+    display: flex;
+    align-items: center;
+}
+
+.outline {
+    margin-right: 18px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border: 1px solid #227AFF;
+    border-radius: 150px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #2E3B50;
+    background-color: #fff;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.line {
+    width: 750px;
+    height: 1px;
+    background-color: #E6E6E6;
+    margin: 16px 0;
+}
+
+.subTop {
+    display: flex;
+    align-items: center;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.content {
+    width: 720px;
+    margin-top: 45px;
+    padding: 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+}
+
+.gridWrap {
+    display: grid;
+    grid-template-columns: 50px repeat(5, auto) 1fr;
+    grid-template-rows: 24px;
+    grid-auto-rows: 50px;
+}
+
+.topTable {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid #E6E6E6;
+    border-right: 1px solid #E6E6E6;
+    &.last {
+        border-right: none;
+    }
+    span {
+        font-weight: 500;
+        font-size: 12px;
+        color: #5F7289;
+        margin: 0 6px;
+    }
+}
+
+.sortSvg {
+    display: flex;
+    flex-direction: column;
+    svg {
+        cursor: pointer;
+        margin: 1px 0;
+    }
+}
+
+.filterSvg {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.itemInfo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    padding: 0 10px;
+    padding-top: 15px;
+    border-right: 1px solid #E6E6E6;
+    &.last {
+        border-right: none;
+    }
+    &.jcs {
+        justify-content: flex-start;
+        padding-left: 0;
+    }
+    span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: #243350;
+        &.blue {
+            color: #227AFF;
+            font-weight: 500;
+            margin-right: 4px;
+        }
+    }
+    .pic {
+        width: 36px;
+        height: 36px;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 25px rgba(98, 98, 98, 0.07);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transform: translateY(-8px);
+        img {
+            width: 28px;
+        }
+    }
+    .threeDots {
+        margin-right: 2px;
+        width: 15px;
+        height: 15px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .copySvg, .chainSvg {
+        margin-left: 3px;
+        padding-top: 2px;
+        height: 10px;
+        display: flex;
+        align-items: center;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.more {
+    margin-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    &:hover {
+        cursor: pointer;
+        .morePopup {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}
+
+.morePopup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+    position: absolute;
+    top: -8px;
+    z-index: 2;
+    left: calc(100%);
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 10px 20px;
+    span {
+        font-weight: 400;
+        padding: 5px 0;
+        font-size: 12px;
+        color: #000;
+        position: relative;
+        &:hover {
+            .addIn {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+}
+
+.addIn {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.15s ease;
+    position: absolute;
+    width: max-content;
+    top: 80%;
+    left: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000;
+    li {
+        padding: 4px 0;
+        display: flex;
+        align-items: center;
+        svg {
+            margin-right: 8px;
+        }
+    }
+}

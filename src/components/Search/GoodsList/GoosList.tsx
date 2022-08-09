@@ -22,7 +22,7 @@ const ActionsList = () => {
 			<span>Продавцы</span>
 			<span>Анализ брендов</span>
 			<span>Amazon's Marketplaces</span>
-			<span>Other Marketplaces</span>
+			<span>Other Marketplaces</span> 
 			<span>Selling Applications</span>
 			<span>Искать поставщиков</span>
 			<span>Удалить</span>

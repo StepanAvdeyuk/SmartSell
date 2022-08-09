@@ -143,10 +143,12 @@ const totalData = {
         roi: '$0.00'
 }
 
+const configInfo = ['Заказы для отправки', 'Требуют внимания', 'Доход', 'Заказы', 'Проданные юниты', 'Затраты на покупку', 'Затраты на отправку', 'Затраты на склад', 'Возвраты', 'Процент возвратов', 'Amazon Fee', 'Чистая прибыль', 'ROI', 'MARGIN', 'Среднее кол-во заказов'];
+
 const SalesReview = () => {
 
     const [activeReviewType, setActiveReviewType] = React.useState(1);
-
+    const [isOpenConfig, setIsOpenConfig] = React.useState(false);
 
     return (
     <div className={styles.wrapper}>
@@ -180,7 +182,14 @@ const SalesReview = () => {
                             <span>02/15/2022</span>
                         </div>
                     </div>
-                    <button className={styles.outline}>Конфигурация</button>
+                    <div className={styles.configInfo}>
+                        <button className={styles.outline} onClick={() => setIsOpenConfig(!isOpenConfig)}>Конфигурация</button>
+                        <div className={isOpenConfig ? styles.configPopup + ' ' + styles.active : styles.configPopup}>
+                            {configInfo.map(item => {
+                                return <span>{item}</span>;
+                            })}
+                        </div>
+                    </div>
                     <div className={styles.reveiwTypeWrapper}>
                         <div className={activeReviewType === 0 ? styles.reveiwType + ' ' + styles.active : styles.reveiwType} onClick={() => setActiveReviewType(0)}>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
