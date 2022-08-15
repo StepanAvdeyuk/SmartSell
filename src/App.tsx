@@ -17,6 +17,7 @@ import GoosList from './components/Search/GoodsList/GoosList';
 import ProductsList from './components/Search/ProductsList/ProductsList';
 import CommodityPairSettings from './components/CommodityPair/CommodityPairSettings';
 import InventoryTags from './components/InventoryTags/InventoryTags';
+import InventoryChanges from './components/InventoryChanges/InventoryChanges';
 
 const App: React.FC = () => {
 	return (
@@ -38,6 +39,7 @@ const App: React.FC = () => {
 				<Route path="/products_list" element={<ProductsList/>}/>
 				<Route path="/pair_settings" element={<CommodityPairSettings/>}/>
 				<Route path="/tags" element={<InventoryTags/>}/>
+				<Route path="/inventory_changes" element={<InventoryChanges/>}/>
 			</Routes>
        	</div>
 	);
