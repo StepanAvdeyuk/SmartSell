@@ -1,5 +1,3 @@
-import React from 'react'
-
 import SwitchFilter from './Filters/SwitchFilter';
 import Pagination from '../Pagination/Pagination';
 

@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom';
 
 import styles from './Sidebar.module.scss'
 import { getIcon } from './getIcon';
 import { MenuData } from './Sidebar';
-import useHover from '../../hooks/useHover';
-import { CSSTransition } from 'react-transition-group';
 
 type SidebarItemProps = {
     item: MenuData,

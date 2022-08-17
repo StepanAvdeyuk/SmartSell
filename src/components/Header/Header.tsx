@@ -11,7 +11,6 @@ import SystemNotifications from '../Notifications/SystemNotifications';
 import DeveloperNotifications from '../Notifications/DeveloperNotifications';
 import InfoNotifications from '../Notifications/InfoNotifications';
 import DashboardPopup from './DashboardPopup';
-import { CSSTransition } from 'react-transition-group';
 
 const Header: React.FC = () => {
 
@@ -63,7 +62,7 @@ const Header: React.FC = () => {
 			</div>
 
 			<div className={styles.avatarWrapper}>
-				{/* <img src={avatar} alt="avatar"/> */}
+			{/* <img src={avatar} alt="avatar"/> */}
 			</div>
 			{dashboardPopup ? <DashboardPopup/> : null}
 			{accountPopup ? <AccountPopup/> : null}

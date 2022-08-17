@@ -1,5 +1,3 @@
-import React from 'react'
-
 import styles from './Notifications.module.scss';
 
 const DeveloperNotificationsContent = () => {

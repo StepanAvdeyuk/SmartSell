@@ -1,4 +1,3 @@
-import React from 'react'
 import ToggleSwitch from '../Checkboxes/ToggleSwitch';
 import SwitchFilter from '../Search/Filters/SwitchFilter';
 

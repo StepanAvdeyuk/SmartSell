@@ -1,7 +1,5 @@
 import NotificationsType from './NotificationsType';
 import NotificationsCount from './NotificationsCount';
-import DeveloperNotificationsContent from './DeveloperNotificationsContent';
-
 
 import styles from './Notifications.module.scss';
 

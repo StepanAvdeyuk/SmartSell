@@ -1,7 +1,5 @@
-import React, { useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom';
-import useHover from '../../hooks/useHover';
-import { getIcon } from './getIcon';
+import React from 'react'
+import { Link } from 'react-router-dom';
 
 import styles from './Sidebar.module.scss';
 import SidebarItem from './SidebarItem';

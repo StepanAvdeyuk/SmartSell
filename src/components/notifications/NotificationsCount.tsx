@@ -2,9 +2,6 @@ import React from 'react'
 import styles from './Notifications.module.scss';
 
 const NotificationsCount = () => {
-
-    // const [count, setCount] = React.useState(25);
-
     const [isOpen, setIsOpen] = React.useState(false);
 
     function toggleIsOpen() {
